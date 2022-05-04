@@ -1,0 +1,387 @@
+@import "../../dist/css/boxicons.min.css";
+@import "../../dist/css/simlexicon.css";
+@import "../../dist/sweetalert2/sweetalert2.min.css";
+
+@import "../../dist/fonts/Kanit/KanitFont.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Kanit', sans-serif;
+  font-family: 'Mitr', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Prompt', sans-serif;
+}
+
+:root {
+  /* ========================== Light color ========================== */
+  --body-color: #f5f5f5;
+  --sidebar-color: #0a2558;
+  --primary-color: #0d3277;
+  --text-button-color: white;
+  --navigation-top-color: #fff;
+  --text-color: #474747;
+  --primary-color-hover: #081d45;
+  --card-bg-color: #fff;
+  --border-color: rgba(0, 0, 0, 0.125);
+
+  /* ====== Transition ====== */
+  --tran-03: all 0.2s ease;
+  --tran-03: all 0.3s ease;
+  --tran-04: all 0.3s ease;
+  --tran-05: all 0.3s ease;
+}
+
+body {
+  min-height: 90vh;
+  background-color: var(--body-color);
+  transition: var(--tran-05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;  
+}
+
+body .img{
+  display: block;
+}
+
+body .img-Dark{
+  display: none;
+}
+
+body.dark .img{
+  display: none;
+}
+
+body.dark .img-Dark{
+  display: block;
+}
+
+/* ========================== Dark color ========================== */
+body.dark {
+  --body-color: #1a1a1a;
+  --sidebar-color: #252525;
+  --primary-color: #4b49ac;
+  --text-button-color: white;
+  --navigation-top-color: #2a2a2a;
+  --text-color: #ccc;
+  --primary-color-hover: #591baa;
+  --card-bg-color: #252525;
+  --border-color: rgba(0, 0, 0, 0.125);
+}
+
+.text-color{
+    color: var(--text-color);
+}
+
+.login-title {
+  padding-right: 2rem;
+  display: flex;
+  align-items:center;  
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--text-button-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* ========================== navigation top title menu ========================== */
+.navigation-top {
+  left: 250px;
+  width: calc(100% - 250px);
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  top: 0;
+  z-index: 1020;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: calc(100%);
+  padding: 0 20px;
+  background: var(--navigation-top-color);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+  transition: var(--tran-05);
+}
+
+.navigation-top.newtab {
+  background: var(--sidebar-color);
+}
+
+.navigation-top .sidebar-button {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+nav .sidebar-button i {
+  font-size: 28px;
+  margin-right: 10px;
+}
+
+.toggle-menu {
+  color: var(--text-color);
+  display: flex;
+  cursor: pointer;
+  transition: var(--tran-05);
+}
+
+.title-main {
+  color: var(--text-color);
+}
+
+.sidebar.close ~ .navigation-top {
+  left: 88px;
+  width: calc(100% - 88px);
+}
+
+.navigation-top.newtab .icon {
+  color: var(--text-button-color);
+  transition: var(--tran-03);
+}
+
+.navigation-top.newtab .title-main {
+  color: var(--text-button-color);
+  transition: var(--tran-03);
+}
+
+.toggle-switch {
+  font-size: 18px;
+}
+
+.navigation-top.newtab .icon.bx.bx-sun{
+  display: none;
+}
+
+.navigation-top.newtab .icon.bx.bx-moon{
+  display: flex;
+}
+
+body.dark .navigation-top.newtab .icon.bx.bx-sun{
+  display: flex;
+}
+
+body.dark .navigation-top.newtab .icon.bx.bx-moon{
+  display: none;
+}
+
+/* ========================== button ========================== */
+.btn-primary {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background: var(--primary-color-hover);
+  border-color: var(--primary-color);
+}
+
+.container{
+    margin-top: 80px;
+    position: relative;
+    max-width: 850px;
+    width: 100%;
+    background: var(--card-bg-color);
+    padding: 40px 30px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    perspective: 2700px;
+    border-radius: 25px;
+  }
+  .container .cover{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 50%;
+    z-index: 98;
+    transition: all 1s ease;
+    transform-origin: left;
+    transform-style: preserve-3d;
+  }
+   .container .cover .front{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .container .cover::before,
+  .container .cover::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 12;
+  }
+  
+  .container .cover img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 10;
+  }
+
+  .container .cover .img-Dark{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 10;
+  }
+  .container .cover .text{
+    position: absolute;
+    z-index: 130;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .cover .text .text-1,
+  .cover .text .text-2{
+    font-size: 26px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+  }
+   .cover .text .text-2{
+    font-size: 15px;
+    font-weight: 500;
+  } 
+  .container .forms{
+    height: 100%;
+    width: 100%;
+    background: var(--card-bg-color);
+  }
+  .container .form-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .form-content .login-form {
+    width: calc(100% / 2 - 25px);
+  }
+  .forms .form-content .title{
+    position: relative;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--text-color);
+  }
+  .forms .form-content .title:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 28px;
+    background: var(--primary-color);
+  }
+  .forms .form-content .input-boxes{
+    margin-top: 30px;
+  }
+  .forms .form-content .input-box{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    margin: 10px 0;
+    position: relative;
+  }
+  .form-content .input-box input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0 30px;
+    font-size: 16px;
+    font-weight: 500;    
+    border-bottom: 3px solid rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+  }
+
+  body.dark .form-content .input-box input{
+    border-radius: 6px;
+  }
+  .form-content .input-box input:focus  {
+    border-color: var(--primary-color);
+  }
+  .form-content .input-box i{
+    position: absolute;
+    color: var(--primary-color);
+    font-size: 17px;
+  }
+
+  .form-content .input-box i{
+    font-size: 24px;
+    padding: 2px;
+  }
+  .form-content .input-box i{
+    font-size: 24px;
+    padding: 2px;
+  }
+
+  .form-content .input-box span {
+    position: absolute;
+    right: 28px;
+    transform: translate(0, -50%);
+    top: 25%;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  .form-content .input-box span i{
+    color: #7a797e;
+  }
+  .forms .form-content .text{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-color);
+  }
+  .forms .form-content .text a{
+    text-decoration: none;
+  }
+  .forms .form-content .text a:hover{
+    text-decoration: underline;
+  }
+  .forms .form-content .button{
+    color: #fff;
+    margin-top: 40px;
+  }
+  .forms .form-content .button input{
+    color: #fff;
+    background: var(--primary-color);
+    font-size: 20px;
+    border-radius: 6px;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.4s ease;
+  }
+  .forms .form-content .button input:hover{
+    background: var(--primary-color-hover);
+  }
+  .forms .form-content label{
+    font-size: 14px;
+    color: var(--text-color);
+    cursor: pointer;
+  }
+  .forms .form-content label:hover{
+    text-decoration: underline;
+  }
+  .forms .form-content .login-text,
+  .forms .form-content .sign-up-text{
+    text-align: center;
+    margin-top: 25px;
+  }
+  @media (max-width: 730px) {
+    .container .cover{
+      display: none;
+    }
+    .form-content .login-form{
+      width: 100%;
+    }
+  }

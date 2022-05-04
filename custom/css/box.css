@@ -1,0 +1,322 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;0,300;0,400;0,600;0,700;1,600&family=Mitr&family=Poppins:wght@100;400&family=Prompt&display=swap");
+@import url("https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Kanit", sans-serif;
+  font-family: "Mitr", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Prompt", sans-serif;
+}
+
+:root {
+  /* ============================= root color ============================= */
+  --body-color: #f5f5f5;
+  --text-color: #474747;
+  --card-bg-color: #fff;
+
+  /* ============================= font-size ============================= */
+  --text-title-inside: 20px;
+  --text-value-inside: 38px;
+  --footer-link-i: 20px;
+  --footer-link-a: 14px;
+}
+
+/* =============================================== card-box =============================================== */
+.card-box {
+  height: 105px;
+  min-width: 244px;
+  flex: 1 1 auto;
+  margin: 1rem 1rem;
+  padding: 1rem 1rem;
+  background-color: var(--card-bg-color);
+  border-color: var(--card-bg-color);
+  transition: var(--tran-05);
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* =============================================== row-detail-inside =============================================== */
+.row-detail-inside {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box-detail-inside {
+  height: 100%;
+  position: relative;
+  flex: 100 100 auto;
+  flex-wrap: wrap;
+  width: 70%;
+}
+
+.align-content-between{
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  align-content: space-between;
+  flex: 100 100 auto;
+  flex-wrap: wrap;
+}
+
+.text-title-inside{  
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: bold;
+  color: var(--text-color);
+  font-size: var(--text-title-inside);
+}
+
+.text-value-inside{
+  margin-top: -3px;
+  margin-bottom: 0;
+  width: 100%;
+  text-align: center;
+  align-self: center;  
+  font-size: var(--text-value-inside);
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.footer-link i {
+  height: 20px;
+  width: 20px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 50%;
+  color: var(--text-color);
+  font-size: var(--footer-link-i);
+  margin-right: 5px;   
+}
+
+.footer-link a{
+  font-size: var(--footer-link-a);
+  text-decoration: none;
+}
+
+.footer-link a{
+  color: var(--text-color);
+}
+
+.box-icon{
+  width: 70px;
+  height: 70px;
+  top: 50%;
+  left: 50%;
+  display:flex;
+  flex-wrap: wrap;
+  align-content: center;
+  position: absolute;  
+  text-align: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  line-height: 50px;
+}
+
+.box-icon-inside {
+  height: 100%;
+  position: relative;
+  flex: 100 100 auto;
+  flex-wrap: wrap;
+  width: 30%;
+}
+
+.box-icon i{
+  font-size: 40px;
+}
+
+/*=============================================== Class List ===============================================*/
+/* card-box blue */
+.card-box.theme-blue .box-icon{
+  background: #cce5ff;
+  color: #66b0ff;
+}
+
+.card-box.theme-blue .footer-link a:hover{
+  color: #66b0ff;
+}
+
+.card-box.theme-blue .footer-link i{
+  background: #66b0ff;
+  color: #fff;
+}
+
+/* card-box theme-teal */
+.card-box.theme-teal .box-icon{
+  background: #c0f2d8;
+  color: #2bd47d;
+}
+
+.card-box.theme-teal .footer-link a:hover{
+  color: #2bd47d;
+}
+
+.card-box.theme-teal .footer-link i{
+  background: #2bd47d;
+  color: #fff;
+}
+
+/* card-box theme-purple */
+.card-box.theme-purple .box-icon{
+  background: #d1d1f8;
+  color: #8d8bf8;
+}
+
+.card-box.theme-purple .footer-link a:hover{
+  color: #8d8bf8;
+}
+
+.card-box.theme-purple .footer-link i{
+  background: #8d8bf8;
+  color: #fff;
+}
+
+/* card-box theme-yellow */
+.card-box.theme-yellow .box-icon{
+  background: #ffe8b3;
+  color: #ffc233;
+}
+
+.card-box.theme-yellow .footer-link a:hover{
+  color: #ffc233;
+}
+
+.card-box.theme-yellow .footer-link i{
+  background: #ffc233;
+  color: #fff;
+}
+
+/* card-box theme-red */
+.card-box.theme-red .box-icon{
+  background: #f7d4d7;
+  color: #e05260;
+}
+
+.card-box.theme-red .footer-link a:hover{
+  color: #e05260;
+}
+
+.card-box.theme-red .footer-link i{
+  background: #e05260;
+  color: #fff;
+}
+
+/* card-box theme-light-blue */
+.card-box.theme-light-blue .box-icon{
+  background: #b7e6f6;
+  color: #5ac7ee;
+}
+
+.card-box.theme-light-blue .footer-link a:hover{
+  color: #5ac7ee;
+}
+
+.card-box.theme-light-blue .footer-link i{
+  background: #5ac7ee;
+  color: #fff;
+}
+
+/* card-box theme-green */
+.card-box.theme-green .box-icon{
+  background: #b1d896;
+  color: #69924b;
+}
+
+.card-box.theme-green .footer-link a:hover{
+  color: #69924b;
+}
+
+.card-box.theme-green .footer-link i{
+  background: #69924b;
+  color: #fff;
+}
+
+/* card-box theme-pink */
+.card-box.theme-pink .box-icon{
+  background: #f5b3c9;
+  color: #e75989;
+}
+
+.card-box.theme-pink .footer-link a:hover{
+  color: #e75989;
+}
+
+.card-box.theme-pink .footer-link i{
+  background: #e75989;
+  color: #fff;
+}
+
+/* card-box theme-orange */
+.card-box.theme-orange .box-icon{
+  background: rgb(250, 200, 178);
+  color: #eb8153;
+}
+
+.card-box.theme-orange .footer-link a:hover{
+  color: #eb8153;
+}
+
+.card-box.theme-orange .footer-link i{
+  background: #eb8153;
+  color: #fff;
+}
+
+/* card-box theme-dark-blue */
+.card-box.theme-dark-blue .box-icon{
+  background: #b8bff5;
+  color: #3d4dc5;
+}
+
+.card-box.theme-dark-blue .footer-link a:hover{
+  color: #3d4dc5;
+}
+
+.card-box.theme-dark-blue .footer-link i{
+  background: #3d4dc5;
+  color: #fff;
+}
+
+/* vvvvvvv============================= ไม่เกี่ยว =============================vvvvvvv*/
+body {
+  min-height: 90vh;
+  transition: var(--tran-05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.Dashboard-container {
+  margin-top: 6.5rem;
+  position: relative;
+  max-width: 740px;
+  width: 100%;
+  background: var(--card-bg-color);
+  perspective: 2700px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+@media(max-width: 640px){
+  .col{
+    width: 100%;
+  }
+}
+/* ^^^^^^^^============================= ไม่เกี่ยว =============================^^^^^^^^*/

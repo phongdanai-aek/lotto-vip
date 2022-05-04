@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'simlexicon';
+  src:  url('../fonts/simlexicon.eot?7sdj7e');
+  src:  url('../fonts/simlexicon.eot?7sdj7e#iefix') format('embedded-opentype'),
+    url('../fonts/simlexicon.ttf?7sdj7e') format('truetype'),
+    url('../fonts/simlexicon.woff?7sdj7e') format('woff'),
+    url('../fonts/simlexicon.svg?7sdj7e#simlexicon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="sml-icon-"], [class*=" sml-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'simlexicon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sml-icon-simlexicon:before {
+  content: "\e9000";
+}
