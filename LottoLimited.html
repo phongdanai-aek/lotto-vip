@@ -102,7 +102,6 @@
                         <span class="switch"></span>
                     </div>
                 </li>
-
             </div>
         </div>
     </nav>
@@ -119,132 +118,139 @@
     <section class="home">
 
         <div class="container-fluid">
-            <div class="card">                
-                <!-- ========================== Modal Edit ========================== -->
-                <div class="modal fade" id="ModalEdit">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">แก้ไขข้อมูลงวด</h5>
-                                <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="mx-3 sm-mh-100 card-body">
-                                        <div class="row g-3">
-                                            <div class="col-sm-12 col-lg-6">
-                                                <span class="text-danger">*</span><label for="E_LESSON_ID"
-                                                    class="col-form-label">รหัสงวด</label>
-                                                <input type="text" id="E_LESSON_ID" class="form-control" readonly>
-                                            </div>
+            <div class="modal fade" id="AddLimitedNumber2">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">ตั้งค่าเลขอั้น 2 ตัว</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mx-3 sm-mh-100 card-body">
+                                    <div class="row g-3">
+                                        <div class="col-6">
+                                            <label for="2Limit" class="col-form-label">เลขอั้น</label>
+                                            <input id="2Limit" class="form-control"
+                                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                type="number" maxlength="2" min="0">
+                                        </div>
 
-                                            <div class="col-sm-12 col-lg-6">
-                                                <span class="text-danger">*</span><label for="E_LESSON_DATE"
-                                                    class="col-form-label">วันที่งวด</label>
-                                                <input type="date" id="E_LESSON_DATE" class="form-control">
-                                            </div>
+                                        <div class="col-6">
+                                            <label for="LimitType2" class="col-form-label">จ่าย</label>
+                                            <select class="form-select" id="LimitType2">
+                                                <option value="50">จ่ายครึ่ง</option>
+                                                <option value="0">ไม่รับแทง</option>
+                                            </select>
+                                        </div>
 
-                                            <div class="col-sm-12 col-lg-6">
-                                                <label for="E_START_DATE" class="col-form-label">เปิดรับแทง</label>
-                                                <input type="date" id="E_START_DATE" class="form-control">
-                                            </div>
-
-                                            <div class="col-sm-12 col-lg-6">
-                                                <label for="E_LIMIT_DATE_TIME"
-                                                    class="col-form-label">ปิดรับแทง</label>
-                                                <input type="datetime-local" id="E_LIMIT_DATE_TIME"
-                                                    class="form-control">
-                                            </div>
-
-                                            <div class="form-group col-sm-12">
-                                                <label for="E_REMARKS" class="form-label">หมายเหตุ</label>
-                                                <textarea class="form-control" id="E_REMARKS" rows="2"></textarea>
-                                            </div>
-
-                                            <!-- Btn Save Close -->
-                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                                <button type="submit" class="btn btn-success"> <span><i
-                                                            class='bx bxs-save align-middle'></i></span> บันทึกการแก้ไข
-
-                                                </button>
-
-                                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                                    <span><i class='bx bx-window-close align-middle'></i></span>
-                                                    ออก</button>
-                                                </button>
-                                            </div>
+                                        <!-- Btn add-->
+                                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                            <button type="button" class="btn btn-primary" style="min-width: 12ex;"
+                                                onclick="clickAdd2()"> <span><i
+                                                        class="bx bx-plus-circle align-middle"></i> </span>
+                                                เพิ่ม</button>
+                                            </button>
                                         </div>
                                     </div>
-                                </form>
-                            </div>
+                                    <div class="table-responsive scroll-custom mt-5">
+                                        <table id="NumberTable2" class="table table-striped mb-0 table-lg">
+                                            <thead class="text-h">
+                                                <tr>
+                                                    <th style="text-align: center;">เลขอั้น</th>
+                                                    <th style="text-align: center;">จ่าย</th>
+                                                    <th align="right" style="text-align: right;"><i
+                                                        class='bx bxs-customize me-2'></i></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="NumberBody2" class="text-p">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"> <span><i
+                                                    class='bx bx-window-close align-middle'></i></span>
+                                            ออก</button>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>                             
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- ========================== Modal View ========================== -->
-                <div class="modal fade" id="ModalView">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">ข้อมูลงวด</h5>
-                                <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="mx-3 sm-mh-100 card-body">
-                                        <div class="row g-3">
-                                            <div class="col-sm-12 col-lg-6">
-                                                <span class="text-danger">*</span><label for="V_LESSON_ID"
-                                                    class="col-form-label">รหัสงวด</label>
-                                                <input type="text" id="V_LESSON_ID" class="form-control" readonly>
-                                            </div>
+            <div class="modal fade" id="AddLimitedNumber3">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">ตั้งค่าเลขอั้น 3 ตัว</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mx-3 sm-mh-100 card-body">
+                                    <div class="row g-3">
+                                        <div class="col-6">
+                                            <label for="3Limit" class="col-form-label">เลขอั้น</label>
+                                            <input id="3Limit" class="form-control"
+                                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                type="number" maxlength="3" min="0">
+                                        </div>
 
-                                            <div class="col-sm-12 col-lg-6">
-                                                <span class="text-danger">*</span><label for="V_LESSON_DATE"
-                                                    class="col-form-label">วันที่งวด</label>
-                                                <input type="date" id="V_LESSON_DATE" class="form-control" readonly>
-                                            </div>
+                                        <div class="col-6">
+                                            <label for="LimitType3" class="col-form-label">จ่าย</label>
+                                            <select class="form-select" id="LimitType3">
+                                                <option value="0">ไม่รับแทง</option>
+                                                <option value="50">จ่ายครึ่ง</option>                                                
+                                            </select>
+                                        </div>
 
-                                            <div class="col-sm-12 col-lg-6">
-                                                <label for="V_START_DATE" class="col-form-label">เปิดรับแทง</label>
-                                                <input type="date" id="V_START_DATE" class="form-control" readonly>
-                                            </div>
-
-                                            <div class="col-sm-12 col-lg-6">
-                                                <label for="V_LIMIT_DATE_TIME"
-                                                    class="col-form-label">ปิดรับแทง</label>
-                                                <input type="datetime-local" id="V_LIMIT_DATE_TIME"
-                                                    class="form-control" readonly>
-                                            </div>
-
-                                            <div class="form-group col-sm-12">
-                                                <label for="V_REMARKS" class="form-label">หมายเหตุ</label>
-                                                <textarea class="form-control" id="V_REMARKS" rows="2" readonly></textarea>
-                                            </div>
-
-                                            <div id="LESSON_STATUS" class="form-group col-sm-12">
-                                            </div>
-
-                                            <!-- Btn Close -->
-                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                                    <span><i class='bx bx-window-close align-middle'></i></span>
-                                                    ออก</button>
-                                                </button>
-                                            </div>
+                                        <!-- Btn add-->
+                                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                            <button type="button" class="btn btn-primary" style="min-width: 12ex;"
+                                                onclick="clickAdd3()"> <span><i
+                                                        class="bx bx-plus-circle align-middle"></i> </span>
+                                                เพิ่ม</button>
+                                            </button>
                                         </div>
                                     </div>
-                                </form>
-                            </div>
+                                    <div class="table-responsive scroll-custom mt-3">
+                                        <table id="NumberTable3" class="table table-striped mb-0 table-lg">
+                                            <thead class="text-h">
+                                                <tr>
+                                                    <th style="text-align: center;">เลขอั้น</th>
+                                                    <th style="text-align: center;">จ่าย</th>
+                                                    <th align="right" style="text-align: right;"><i
+                                                        class='bx bxs-customize me-2'></i></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="NumberBody3" class="text-p">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"> <span><i
+                                                    class='bx bx-window-close align-middle'></i></span>
+                                            ออก</button>
+                                        </button>
+                                    </div> 
+                                </div>
+                            </form>
                         </div>
                     </div>
-                </div>
+                </div>                           
+            </div>
+
+            <div class="card">
 
                 <!-- ========================== card-body ========================== -->
                 <div class="card-body">
                     <div class="input-group mb-3 justify-content-end">
-                        <input type="text" class="form-control" placeholder="ค้นหา..." aria-label="" aria-describedby="searchBtn" style="max-width: 260px;">
-                        <button class="btn btn-primary" type="button" id="searchBtn"><span><i class='bx bx-search align-middle'></i></span></button>
+                        <input type="text" class="form-control" placeholder="ค้นหา..." aria-label=""
+                            aria-describedby="searchBtn" style="max-width: 260px;">
+                        <button class="btn btn-primary" type="button" id="searchBtn"><span><i
+                                    class='bx bx-search align-middle'></i></span></button>
                     </div>
                     <div class="card-content">
                         <div class="table-responsive scroll-custom">
@@ -254,7 +260,6 @@
                                 <thead class="text-h">
                                     <tr>
                                         <th><i class='bx bxs-customize'></i></th>
-                                        <th style="text-align: center;">สถานะ</th>
                                         <th style="text-align: center;">ระหัสงวด</th>
                                         <th style="text-align: center;">วันที่งวด</th>
                                         <th style="text-align: center;">เปิดรับแทง</th>
@@ -276,17 +281,13 @@
 
     <!--############################################### Java Script ############################################### -->
     <!-- Bootstrap js-->
-    <script src="dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- DataTables -->
-    <script src="dist/js/jquery-3.5.1.js"></script>
-    <script src="dist/js/jquery.dataTables.min.js"></script>
-    <script src="dist/js/dataTables.bootstrap5.min.js"></script>
+    <script src="./dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom nav -->
-    <script src="custom/js/script.js"></script>
-    <script src="dist/sweetalert2/sweetalert2.all.min.js"></script>
-    <script src="custom/js/LottoData.js"></script>
+    <script src="./custom/js/script.js"></script>
+    <script src="./dist/sweetalert2/sweetalert2.all.min.js"></script>
+
+    <script src="./custom/js/LottoLimited.js"></script>
 </body>
 
 

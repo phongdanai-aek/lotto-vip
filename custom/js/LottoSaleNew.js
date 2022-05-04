@@ -161,19 +161,19 @@ function CalculateSummary(){
 
 function AddRow(lottoNumber, lottoTypeID, lottoTypeNM, lottoQty, paymentValue, Paymenttext) {
   //Get the reference of the Table's TBODY element.
-  var tBody = document
+  let tBody = document
     .getElementById("MainTable")
     .getElementsByTagName("TBODY")[0];
 
   //insertRow(-1) = Next Row
   row = tBody.insertRow(-1);
   
-  var cell0 = row.insertCell(0);//BILL_D_ID
-  var cell1 = row.insertCell(1);//LOTTO_NUMBER
-  var cell2 = row.insertCell(2);//LOTTO_ID
-  var cell3 = row.insertCell(3);//QTY
-  var cell4 = row.insertCell(4);//PAYMENT_P
-  var cell5 = row.insertCell(5);//ปุ่มลบ
+  let cell0 = row.insertCell(0);//BILL_D_ID
+  let cell1 = row.insertCell(1);//LOTTO_NUMBER
+  let cell2 = row.insertCell(2);//LOTTO_ID
+  let cell3 = row.insertCell(3);//QTY
+  let cell4 = row.insertCell(4);//PAYMENT_P
+  let cell5 = row.insertCell(5);//ปุ่มลบ
 
   cell0.setAttribute("hidden", true);
   cell0.value = billDetail.toString().padStart(6,'0');  
@@ -194,7 +194,7 @@ function AddRow(lottoNumber, lottoTypeID, lottoTypeNM, lottoQty, paymentValue, P
   cell5.innerHTML = btnDeleteRow;
   cell5.align = "right";//ปุ่มลบ
 
-  // var btnRemove = document.createElement("INPUT");
+  // let btnRemove = document.createElement("INPUT");
   // btnRemove.type = "button";
   // btnRemove.value = "ลบ";
   // btnRemove.setAttribute("onclick", "deleteRow(this);");
@@ -207,8 +207,8 @@ async function deleteRow(rowActive) {
 }
 
 function deleteProcess(rowActive){
-  var row = rowActive.parentNode.parentNode;
-  var table = document.getElementById("MainTable");
+  let row = rowActive.parentNode.parentNode;
+  let table = document.getElementById("MainTable");
 
   // console.log("BILL_D_ID = " + table.rows[row.rowIndex].cells[0].value)
   // console.log("LOTTO_NUMBER = " + table.rows[row.rowIndex].cells[1].value)
@@ -376,7 +376,7 @@ function skipLimitedWarning(lottoLimitedNo) {
     bodyColor = "#252525";
   }
 
-  var Meldungstext = '<p class="Swal2-title mb-1">' + lottoLimitedNo + "</p>";
+  let Meldungstext = '<p class="Swal2-title mb-1">' + lottoLimitedNo + "</p>";
 
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
@@ -402,7 +402,7 @@ function lessonTitleWarning(lassonId, lassonDate, endDate, remarksText) {
     bodyColor = "#252525";
   }
 
-  var Meldungstext = "";
+  let Meldungstext = "";
   Meldungstext =
     Meldungstext +
     '<p class="text-p-bold mb-1">วันที่งวด : <span class="text-p">' +

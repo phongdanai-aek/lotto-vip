@@ -115,6 +115,10 @@ label {
   font-weight: bold;
   color: var(--text-color);
 }
+.badge {
+  font-size: 14px;
+  font-weight: 500;
+}
 
 /* ========================== sidebar ========================== */
 .sidebar {
