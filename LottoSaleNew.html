@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="img/App.ico" type="image/x-icon">
+    <title>Angpao Lotto VIP. | เพิ่มบิล</title>
+
+    <!----========Custom CSS ======== -->
+    <link rel="stylesheet" href="custom/css/style.css">
+    <style>
+        /* ปุมลบ */
+        tr input {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.875rem;
+            border-radius: 0.2rem;
+            color: #fff;
+            background-color: #dc3545;
+            border-color: #dc3545;
+            border: 1px solid transparent;
+            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .swal2-popup {
+            background-color: var(--card-bg-color);
+        }
+
+        .swal2-title {
+            color: var(--text-color);
+        }
+    </style>
+</head>
+
+<body class="scroll-custom-body">
+    <!-- ========================== sidebar ========================== -->
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <i class="sml-icon-simlexicon icon pt-2" style="font-size: 40px;"></i>
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name pt-2">Simlex</span>
+                    <span class="profession">License Control</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links pt-5">
+                    <li class="nav-link">
+                        <a href="index.html">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="LicenseMaster.html">
+                            <i class='bx bxs-key icon'></i>
+                            <span class="text nav-text">License Key</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="LicenseActivated.html">
+                            <i class='bx bx-check-shield icon'></i>
+                            <span class="text nav-text">Activated</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="StaffSimlex.html">
+                            <i class='bx bx-support icon'></i>
+                            <span class="icon-simlexicon"></span>
+                            <span class="text nav-text">Staff Simlex</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="Customer.html">
+                            <i class='bx bxs-contact icon'></i>
+                            <span class="text nav-text">Customer</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bxs-bug icon'></i>
+                            <span class="text nav-text">Bug Tracker</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="Setting.html">
+                            <i class='bx bxs-wrench icon'></i>
+                            <span class="text nav-text">Setting</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="Login.html">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================== navigation top title menu ========================== -->
+    <nav class="navigation-top">
+        <div class="sidebar-button">
+            <i class="bx bx-menu toggle-menu"></i>
+            <span class="title-main ms-2">เพิ่มบิล</span>
+        </div>
+
+    </nav>
+    <!-- ========================== Home Section ========================== -->
+    <section class="home">
+
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+                    <form id="Detail">
+                        <div class="mx-1 sm-mh-100 card-body">
+                            <div class="d-flex justify-content-center">
+                                <h5 id="textLimited" class="text-danger"></h5>
+                            </div>
+                            <div class="row g-1">
+                                <!-- หวยที่ซื้อ -->
+                                <div class="col-3 col-lg-2">
+                                    <label for="LOTTO_NUMBER" class="col-form-label">หวยที่แทง</label>
+                                    <input oninput="loto_number_change()" type="number"
+                                        id="LOTTO_NUMBER" class="form-control">
+                                </div>
+
+                                <!-- 2 ตัวบน -->
+                                <div class="col-3 col-lg-2" id="2U-Group">
+                                    <label for="2U" class="col-form-label">2 ตัวบน</label>
+                                    <input oninput="toInt('2U')" type="number" id="2U" class="form-control">
+                                </div>
+
+                                <!-- 2 ตัวล่าง -->
+                                <div class="col-3 col-lg-2" id="2D-Group">
+                                    <label for="2D" class="col-form-label">2 ตัวล่าง</label>
+                                    <input oninput="toInt('2D')" type="number" id="2D" class="form-control">
+                                </div>
+
+                                <!-- 2 กลับ -->
+                                <div class="col-3 col-lg-2" id="2SWICTH-Group">
+                                    <label for="2SWICTH" class="col-form-label">4 ประตู</label>
+                                    <input oninput="toInt('2SWICTH')" type="number" id="2SWICTH" class="form-control">
+                                </div>
+
+                                <!-- 3 ตัวตรง -->
+                                <div class="col-3 col-lg-2" id="3U-Group">
+                                    <label for="3U" class="col-form-label">3 ตัวตรง</label>
+                                    <input oninput="toInt('3U')" type="number" id="3U" class="form-control">
+                                </div>
+
+                                <!-- 3 ตัวโต๊ด -->
+                                <div class="col-3 col-lg-2" id="3T-Group">
+                                    <label for="3T" class="col-form-label">3 ตัวโต๊ด</label>
+                                    <input oninput="toInt('3T')" type="number" id="3T" class="form-control">
+                                </div>
+
+                                <!-- 6 ประตู -->
+                                <div class="col-3 col-lg-2" id="3U6-Group">
+                                    <label for="3U6" class="col-form-label">6 ประตู</label>
+                                    <input oninput="toInt('3U6')" type="number" id="3U6" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button class="btn btn-primary" style="min-width: 12ex;" onclick="clickAdd()"> <span><i
+                                    class="bx bx-plus-circle align-middle"></i> </span> เพิ่ม</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="card-content">
+                        <div class="table-responsive scroll-custom">
+                            <table id="MainTable" class="table table-striped mb-0 table-lg">
+                                <thead class="text-h">
+                                    <tr>
+                                        <th>แทง</th>
+                                        <th>ประเภท</th>
+                                        <th>ราคา</th>
+                                        <th>จ่าย</th>
+                                        <th align="right" style="text-align: right;"><i
+                                                class='bx bxs-customize me-2'></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-body" class="text-p">
+                                    <!-- หลังจาก กดเพิ่ม -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="d-flex justify-content-start mt-3">
+                            <p id="remarksWorning" class="font-weight-bold text-danger mb-0"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4 mb-4">
+                <div class="card-body">
+                    <form id="Header">
+                        <div class="mx-1 sm-mh-100 card-body">
+                            <div class="row g-1">
+                                <!-- ชื่อลูกค้า -->
+                                <div class="col-md-3">
+                                    <span class="text-danger">*</span><label for="END_USER"
+                                        class="col-form-label">ชื่อลูกค้า</label>
+                                    <input type="text" id="END_USER" class="form-control" required>
+                                </div>
+
+                                <!-- ยอดราม -->
+                                <div class="col-md-3">
+                                    <label for="TOTOL_QTY" class="col-form-label">ยอดราม(บาท)</label>
+                                    <input type="number" id="TOTOL_QTY" class="form-control" value="0" readonly>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <span class="text-danger">*</span><label for="DISCOUNT_P" class="col-form-label">ส่วนลดร้อยละ</label>
+                                    <input oninput="CalculateSummary()" type="number" id="DISCOUNT_P" class="form-control" value="0" required>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="DISCOUNT" class="col-form-label">ส่วนลด(บาท)</label>
+                                    <input type="number" id="DISCOUNT" class="form-control" value="0" readonly>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="NET_TOTOL_QTY"
+                                        class="col-form-label">ยอดรามสุทธิ(บาท)</label>
+                                    <input type="number" id="NET_TOTOL_QTY" class="form-control" value="0" maxlength="6" readonly>
+                                </div>
+
+                                <!-- จ่ายแล้ว -->
+                                <div class="col-md-3">
+                                    <span class="text-danger">*</span><label for="RECEIVE_QTY"
+                                        class="col-form-label">จ่ายแล้ว(บาท)</label>
+                                    <input oninput="CalculateSummary()" type="number" id="RECEIVE_QTY" class="form-control" value="0" maxlength="6" required>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="BALANCE_QTY"
+                                        class="col-form-label">คงค้าง(บาท)</label>
+                                    <input type="number" id="BALANCE_QTY" class="form-control" value="0" maxlength="6" readonly>
+                                </div>
+
+                                <!-- หมายเหตุ -->
+                                <div class="col-md-12">
+                                    <label for="REMARKS" class="col-form-label">หมายเหตุ</label>
+                                    <input type="text" id="REMARKS" class="form-control" maxlength="100">
+                                </div>
+
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                                    <button type="submit" class="btn btn-success" style="min-width: 12ex;">
+                                        <span><i class='bx bxs-save align-middle'></i></span> บันทึก
+                                    </button>
+                                </div>
+            
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--############################################### Java Script ############################################### -->
+    <!-- Bootstrap js-->
+    <script src="dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom nav -->
+    <script src="custom/js/script.js"></script>
+    <script src="dist/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="custom/js/LottoSaleNew.js"></script>
+</body>
+
+
+
+</html>
